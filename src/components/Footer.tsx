@@ -1,17 +1,10 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Globe, ArrowUp, Facebook } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { schoolInfo } from '../data/schoolData';
 import { SchoolLogo } from './SchoolLogo';
 
-interface FooterProps {
-  onNavigate: (sectionId: string) => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-950 text-white border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -59,24 +52,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               {[
-                { id: 'home', label: 'Home Page' },
-                { id: 'about', label: 'About Kevote' },
-                { id: 'academics', label: 'Academics & Senior School' },
-                { id: 'admissions', label: 'Admissions & Requirements' },
-                { id: 'campus', label: 'Campus & Facilities' },
-                { id: 'school-life', label: 'School Life & Boarding' },
-                { id: 'news', label: 'News & Announcements' },
-                { id: 'gallery', label: 'Photo Gallery' },
-                { id: 'alumni', label: 'Alumni Network' },
-                { id: 'contact', label: 'Contact Administration' }
+                { path: '/', label: 'Home Page' },
+                { path: '/about', label: 'About Kevote' },
+                { path: '/academics', label: 'Academics & Senior School' },
+                { path: '/admissions', label: 'Admissions & Requirements' },
+                { path: '/school-life', label: 'School Life & Boarding' },
+                { path: '/news', label: 'News & Announcements' },
+                { path: '/gallery', label: 'Photo Gallery' },
+                { path: '/alumni', label: 'Alumni Network' },
+                { path: '/contact', label: 'Contact Administration' }
               ].map((link) => (
-                <li key={link.id}>
-                  <button
-                    onClick={() => onNavigate(link.id)}
-                    className="text-slate-400 hover:text-sky-300 transition-colors text-left"
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="text-slate-400 hover:text-sky-300 transition-colors inline-block py-0.5"
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -158,14 +150,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <p>
             © 2026 St. Paul's High School – Kevote. All rights reserved. Motto: Jishinde Ushinde.
           </p>
-
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-sky-400 text-slate-300 hover:text-white transition-colors"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5 text-sky-400" />
-          </button>
+          <div className="flex items-center gap-6">
+            <Link to="/about" className="hover:text-sky-300 transition-colors">
+              About
+            </Link>
+            <Link to="/academics" className="hover:text-sky-300 transition-colors">
+              Academics
+            </Link>
+            <Link to="/admissions" className="hover:text-sky-300 transition-colors">
+              Admissions
+            </Link>
+            <Link to="/contact" className="hover:text-sky-300 transition-colors">
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

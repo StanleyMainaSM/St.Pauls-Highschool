@@ -202,8 +202,10 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onAdmissions, onContact }
 
       {/* Subtle Scroll Down Indicator */}
       <button
-        onClick={onExplore}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-slate-400 hover:text-sky-300 transition-colors py-2 focus-visible:outline-sky-400"
+        onClick={() => {
+          window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+        }}
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-slate-400 hover:text-sky-300 transition-colors py-2 focus-visible:outline-sky-400 cursor-pointer"
         aria-label="Scroll down to explore school details"
       >
         <span className="text-[10px] tracking-widest uppercase font-mono mb-1">

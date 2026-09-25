@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Menu, X, ChevronRight } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { schoolInfo } from '../data/schoolData';
 import { SchoolLogo } from './SchoolLogo';
 
 interface NavbarProps {
-  activeSection: string;
-  onNavigate: (sectionId: string) => void;
-  onOpenAdmissionsModal: () => void;
+  onOpenAdmissionsModal?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
-  activeSection,
-  onNavigate,
-  onOpenAdmissionsModal
-}) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmissionsModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,22 +22,34 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile drawer on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'academics', label: 'Academics' },
-    { id: 'admissions', label: 'Admissions' },
-    { id: 'campus', label: 'Campus' },
-    { id: 'school-life', label: 'School Life' },
-    { id: 'news', label: 'News & Events' },
-    { id: 'gallery', label: 'Gallery' },
-    { id: 'alumni', label: 'Alumni' },
-    { id: 'contact', label: 'Contact' },
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/academics', label: 'Academics' },
+    { path: '/admissions', label: 'Admissions' },
+    { path: '/school-life', label: 'School Life' },
+    { path: '/news', label: 'News & Events' },
+    { path: '/gallery', label: 'Gallery' },
+    { path: '/alumni', label: 'Alumni' },
+    { path: '/contact', label: 'Contact' },
   ];
 
-  const handleLinkClick = (id: string) => {
-    onNavigate(id);
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
+  };
+
+  const handleLogoClick = () => {
     setMobileMenuOpen(false);
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -96,8 +105,8 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo & Brand */}
           <button
-            onClick={() => handleLinkClick('home')}
-            className="flex items-center gap-3 text-left focus-visible:outline-sky-400 rounded-lg p-1 -ml-1 transition-transform hover:opacity-95"
+            onClick={handleLogoClick}
+            className="flex items-center gap-3 text-left focus-visible:outline-sky-400 rounded-lg p-1 -ml-1 transition-transform hover:opacity-95 cursor-pointer"
             aria-label="St. Paul's High School Kevote Home"
           >
             <SchoolLogo size="md" lightVariant />
@@ -120,49 +129,49 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Desktop Nav Items */}
           <div className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
+              const active = isActive(link.path);
               return (
-                <button
-                  key={link.id}
-                  onClick={() => handleLinkClick(link.id)}
+                <Link
+                  key={link.path}
+                  to={link.path}
                   className={`px-3 py-1.5 text-xs font-semibold tracking-wide uppercase transition-all rounded-md relative ${
-                    isActive
+                    active
                       ? 'text-sky-300 font-bold bg-sky-950/60'
                       : 'text-slate-200 hover:text-white hover:bg-slate-800/50'
                   }`}
-                  aria-current={isActive ? 'page' : undefined}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {link.label}
-                  {isActive && (
+                  {active && (
                     <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-sky-400 rounded-full" />
                   )}
-                </button>
+                </Link>
               );
             })}
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden sm:flex items-center gap-3">
-            <button
-              onClick={onOpenAdmissionsModal}
-              className="px-4 py-2 text-xs font-bold tracking-wider uppercase text-slate-900 bg-gradient-to-r from-sky-400 to-sky-300 hover:from-sky-300 hover:to-sky-200 rounded-lg shadow-sm shadow-sky-500/20 transition-all hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 active:scale-95"
+            <Link
+              to="/admissions"
+              className="px-4 py-2 text-xs font-bold tracking-wider uppercase text-slate-900 bg-gradient-to-r from-sky-400 to-sky-300 hover:from-sky-300 hover:to-sky-200 rounded-lg shadow-sm shadow-sky-500/20 transition-all hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 active:scale-95 inline-block text-center"
             >
               Admissions 2026
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Hamburger */}
           <div className="flex items-center gap-2 xl:hidden">
-            <button
-              onClick={onOpenAdmissionsModal}
+            <Link
+              to="/admissions"
               className="sm:hidden px-2.5 py-1.5 text-[11px] font-bold uppercase text-slate-900 bg-sky-400 rounded-md"
             >
               Apply
-            </button>
+            </Link>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 cursor-pointer"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -187,34 +196,33 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <div className="grid grid-cols-2 gap-2">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
+                const active = isActive(link.path);
                 return (
-                  <button
-                    key={link.id}
-                    onClick={() => handleLinkClick(link.id)}
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold rounded-lg text-left transition-colors ${
-                      isActive
+                      active
                         ? 'bg-sky-900/60 text-sky-300 border border-sky-700/50'
-                        : 'text-slate-200 hover:bg-slate-850 hover:text-white'
+                        : 'text-slate-200 hover:bg-slate-800/80 hover:text-white'
                     }`}
                   >
                     <span>{link.label}</span>
                     <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-                  </button>
+                  </Link>
                 );
               })}
             </div>
 
             <div className="pt-4 border-t border-slate-800 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenAdmissionsModal();
-                }}
-                className="w-full py-3 text-center text-sm font-bold uppercase tracking-wider text-slate-900 bg-sky-400 hover:bg-sky-300 rounded-lg shadow-md"
+              <Link
+                to="/admissions"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 text-center text-sm font-bold uppercase tracking-wider text-slate-900 bg-sky-400 hover:bg-sky-300 rounded-lg shadow-md block"
               >
                 Join St. Paul's Kevote (Admissions)
-              </button>
+              </Link>
 
               <div className="flex justify-between items-center pt-2 text-xs text-slate-400 px-1">
                 <a href={`tel:${schoolInfo.phoneRaw}`} className="text-sky-300 underline">
