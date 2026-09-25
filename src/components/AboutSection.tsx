@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Compass, BookOpen, Shield, CheckCircle, ChevronRight, X } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
 import { AuthenticImage } from './AuthenticImage';
@@ -103,12 +104,13 @@ export const AboutSection: React.FC = () => {
                 <ChevronRight className="w-4 h-4" />
               </button>
 
-              <a
-                href="#campus"
-                className="text-xs font-bold uppercase tracking-wider text-sky-700 hover:text-sky-900 transition-colors py-2"
+              <Link
+                to="/school-life"
+                className="text-xs font-bold uppercase tracking-wider text-sky-700 hover:text-sky-900 transition-colors py-2 flex items-center gap-1"
               >
-                View Campus Facilities ↓
-              </a>
+                <span>View Campus Facilities</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         </div>

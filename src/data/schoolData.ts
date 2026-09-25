@@ -1,3 +1,5 @@
+import { schoolAssets } from './schoolAssets';
+
 export interface SchoolInfo {
   name: string;
   shortName: string;
@@ -298,7 +300,7 @@ export const newsArticles: NewsItem[] = [
     date: "Term Academic Bulletin",
     readTime: "3 min read",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL COMPOUND PHOTO",
-    src: "/images/school-compound.jpg",
+    src: schoolAssets.compound.path,
     excerpt: "The school administration completes laboratory upgrades and pathway orientation for our pioneering cohort of Senior School learners.",
     content: [
       "St. Paul's High School – Kevote has successfully commenced orientation for Senior School learners following Ministry of Education guidelines.",
@@ -314,7 +316,7 @@ export const newsArticles: NewsItem[] = [
     date: "Campus Welfare Update",
     readTime: "2 min read",
     imagePlaceholderLabel: "SCHOOL BAKERY",
-    src: "/images/school-bakery.jpg",
+    src: schoolAssets.bakery.path,
     excerpt: "Our dedicated on-campus bakery continues to deliver hot, fresh, fortified bread daily for all 1,000+ boarding students.",
     content: [
       "The on-campus bakery at Kevote remains one of the most cherished facilities among students and alumni.",
@@ -328,7 +330,7 @@ export const newsArticles: NewsItem[] = [
     date: "Transport & Logistics",
     readTime: "2 min read",
     imagePlaceholderLabel: "BABA YAO SCHOOL BUS",
-    src: "/images/school-bus.jpg",
+    src: schoolAssets.bus.path,
     excerpt: "School transport maintenance concludes as students prepare for county athletics championships and regional science symposiums.",
     content: [
       "The school's beloved bus, affectionately known as 'Baba Yao', has received routine comprehensive mechanical certification.",
@@ -342,7 +344,7 @@ export const newsArticles: NewsItem[] = [
     date: "Alumni Relations",
     readTime: "3 min read",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL DORMITORY",
-    src: "/images/school-dormitory.jpg",
+    src: schoolAssets.dormitory.path,
     excerpt: "Old Boys of Kevote collaborate with school administration to provide career guidance, university orientation, and character talks.",
     content: [
       "St. Paul's Kevote Alumni representatives visited the campus to meet with candidate classes for a series of career talks.",
@@ -357,7 +359,7 @@ export const galleryList: GalleryItem[] = [
     title: "School Gate & Checkpoint",
     category: "FACILITIES",
     imagePlaceholderLabel: "MAIN SCHOOL GATE / ENTRANCE",
-    src: "/images/school-gate.jpg",
+    src: schoolAssets.gate.path,
     caption: "The main gated entry into St. Paul's High School Kevote compound.",
     featured: true
   },
@@ -366,7 +368,7 @@ export const galleryList: GalleryItem[] = [
     title: "Central School Compound & Greenery",
     category: "CAMPUS",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL COMPOUND PHOTO",
-    src: "/images/school-compound.jpg",
+    src: schoolAssets.compound.path,
     caption: "Scenic academic grounds nestled in the highland climate of Kevote.",
     featured: true
   },
@@ -375,7 +377,7 @@ export const galleryList: GalleryItem[] = [
     title: "'Baba Yao' School Bus",
     category: "TRANSPORT",
     imagePlaceholderLabel: "BABA YAO SCHOOL BUS",
-    src: "/images/school-bus.jpg",
+    src: schoolAssets.bus.path,
     caption: "The iconic school bus facilitating student trips and athletic transport.",
     featured: true
   },
@@ -384,7 +386,7 @@ export const galleryList: GalleryItem[] = [
     title: "Student Dormitory Block",
     category: "BOARDING",
     imagePlaceholderLabel: "SCHOOL DORMITORY",
-    src: "/images/school-dormitory.jpg",
+    src: schoolAssets.dormitory.path,
     caption: "Boarding houses providing a safe, brotherhood-oriented home.",
     featured: true
   },
@@ -393,7 +395,7 @@ export const galleryList: GalleryItem[] = [
     title: "School Bakery Facility",
     category: "FACILITIES",
     imagePlaceholderLabel: "SCHOOL BAKERY",
-    src: "/images/school-bakery.jpg",
+    src: schoolAssets.bakery.path,
     caption: "The on-site bakery preparing daily fresh bread for all boarding students.",
     featured: true
   },
@@ -402,7 +404,7 @@ export const galleryList: GalleryItem[] = [
     title: "School Leadership & Administration",
     category: "CAMPUS",
     imagePlaceholderLabel: "PRINCIPAL PHOTOGRAPH",
-    src: "/images/principal.jpg",
+    src: schoolAssets.principal.path,
     caption: "Office of the Chief Principal Mr. Simon Njagi."
   },
   {
@@ -410,7 +412,7 @@ export const galleryList: GalleryItem[] = [
     title: "Science & Computer Laboratory Wing",
     category: "ACADEMICS",
     imagePlaceholderLabel: "AUTHENTIC SCIENCE & COMPUTER LABS",
-    src: "/images/school-laboratories.jpg",
+    src: schoolAssets.laboratories.path,
     caption: "Practical inquiry facilities supporting Physics, Chemistry, Biology and ICT."
   },
   {
@@ -418,7 +420,7 @@ export const galleryList: GalleryItem[] = [
     title: "Sports Fields & Games Grounds",
     category: "SCHOOL LIFE",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL SPORTS GROUNDS",
-    src: "/images/school-sports.jpg",
+    src: schoolAssets.sports.path,
     caption: "Playing fields for rugby, football, handball, volleyball, and athletics."
   }
 ];
