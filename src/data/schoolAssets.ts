@@ -21,7 +21,7 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "logo",
     label: "Official School Crest",
     placeholderText: "OFFICIAL ST. PAUL'S KEVOTE SCHOOL LOGO",
-    path: "", // Set to "/images/logo.png" when uploaded
+    path: "/images/school-logo.png",
     description: "Official shield emblem featuring school motto 'Jishinde Ushinde'",
     category: "Branding"
   },
@@ -29,7 +29,7 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "gate",
     label: "Main School Gate",
     placeholderText: "MAIN SCHOOL GATE / ENTRANCE",
-    path: "", // Set to "/images/school-gate.jpg" when uploaded
+    path: "/images/school-gate.jpg",
     description: "Official entrance gate and security checkpoint of St. Paul's Kevote",
     category: "Campus"
   },
@@ -37,7 +37,7 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "compound",
     label: "School Compound",
     placeholderText: "AUTHENTIC SCHOOL COMPOUND PHOTO",
-    path: "", // Set to "/images/school-compound.jpg" when uploaded
+    path: "/images/school-compound.jpg",
     description: "Aerial or wide view of academic buildings and assembly grounds",
     category: "Campus"
   },
@@ -45,7 +45,7 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "bus",
     label: "School Bus",
     placeholderText: "BABA YAO SCHOOL BUS",
-    path: "", // Set to "/images/baba-yao-bus.jpg" when uploaded
+    path: "/images/school-bus.jpg",
     description: "Official school bus known as 'Baba Yao' used for transport and tours",
     category: "Transport"
   },
@@ -53,7 +53,7 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "dormitory",
     label: "School Dormitory",
     placeholderText: "SCHOOL DORMITORY",
-    path: "", // Set to "/images/school-dormitory.jpg" when uploaded
+    path: "/images/school-dormitory.jpg",
     description: "Boarding dormitories housing our male boarding learners",
     category: "Boarding"
   },
@@ -61,7 +61,7 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "bakery",
     label: "School Bakery",
     placeholderText: "SCHOOL BAKERY",
-    path: "", // Set to "/images/school-bakery.jpg" when uploaded
+    path: "/images/school-bakery.jpg",
     description: "On-campus bakery providing fresh daily bread for students",
     category: "Facilities"
   },
@@ -69,15 +69,15 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "principal",
     label: "Principal Photograph",
     placeholderText: "PRINCIPAL PHOTOGRAPH",
-    path: "", // Set to "/images/principal.jpg" when uploaded
-    description: "Chief Principal Mr. Peter Mwiti Kiugu",
+    path: "/images/principal.jpg",
+    description: "Chief Principal Mr. Simon Njagi",
     category: "Administration"
   },
   laboratories: {
     id: "laboratories",
     label: "Science Laboratories",
     placeholderText: "AUTHENTIC SCIENCE & COMPUTER LABS",
-    path: "", // Set to "/images/labs.jpg" when uploaded
+    path: "/images/school-laboratories.jpg",
     description: "Biology, Chemistry, Physics, and ICT facilities",
     category: "Academics"
   },
@@ -85,7 +85,7 @@ export const schoolAssets: Record<string, SchoolAsset> = {
     id: "sports",
     label: "School Sports Field",
     placeholderText: "AUTHENTIC SCHOOL SPORTS GROUNDS",
-    path: "", // Set to "/images/sports-ground.jpg" when uploaded
+    path: "/images/school-sports.jpg",
     description: "Athletics and ball games fields",
     category: "School Life"
   }

@@ -45,6 +45,7 @@ export interface NewsItem {
   content: string[];
   featured?: boolean;
   imagePlaceholderLabel: string;
+  src?: string;
   readTime: string;
 }
 
@@ -76,7 +77,7 @@ export const schoolInfo: SchoolInfo = {
   sponsor: "Catholic Diocese of Embu (Religious Sponsor)",
   verifiedEnrollment: 1018,
   principal: {
-    name: "Mr. Peter Mwiti Kiugu",
+    name: "Mr. Simon Njagi",
     title: "Chief Principal",
     role: "Principal, St. Paul's High School – Kevote",
     greeting: "Welcome to St. Paul's High School – Kevote",
@@ -142,7 +143,7 @@ export const campusExperienceItems = [
     category: "FACILITIES",
     imagePlaceholderLabel: "MAIN SCHOOL GATE / ENTRANCE",
     description: "The welcoming official entrance to St. Paul's High School Kevote, staffed around the clock with security personnel to ensure a safe learning sanctuary for our 1,000+ students.",
-    verifiedNote: "Verified school landmark & security check"
+    verifiedNote: "School landmark & security checkpoint"
   },
   {
     id: "campus-compound",
@@ -297,11 +298,12 @@ export const newsArticles: NewsItem[] = [
     date: "Term Academic Bulletin",
     readTime: "3 min read",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL COMPOUND PHOTO",
+    src: "/images/school-compound.jpg",
     excerpt: "The school administration completes laboratory upgrades and pathway orientation for our pioneering cohort of Senior School learners.",
     content: [
       "St. Paul's High School – Kevote has successfully commenced orientation for Senior School learners following Ministry of Education guidelines.",
       "The academic committee has aligned faculty resources across the STEM, Social Sciences, and Arts & Sports pathways, with dedicated laboratory time and personalized academic advising.",
-      "Chief Principal Mr. Peter Mwiti Kiugu commended the new learners for their swift adaptation to boarding life and encouraged them to embrace the timeless school motto: 'Jishinde Ushinde'."
+      "Chief Principal Mr. Simon Njagi commended the new learners for their swift adaptation to boarding life and encouraged them to embrace the timeless school motto: 'Jishinde Ushinde'."
     ],
     featured: true
   },
@@ -312,6 +314,7 @@ export const newsArticles: NewsItem[] = [
     date: "Campus Welfare Update",
     readTime: "2 min read",
     imagePlaceholderLabel: "SCHOOL BAKERY",
+    src: "/images/school-bakery.jpg",
     excerpt: "Our dedicated on-campus bakery continues to deliver hot, fresh, fortified bread daily for all 1,000+ boarding students.",
     content: [
       "The on-campus bakery at Kevote remains one of the most cherished facilities among students and alumni.",
@@ -325,6 +328,7 @@ export const newsArticles: NewsItem[] = [
     date: "Transport & Logistics",
     readTime: "2 min read",
     imagePlaceholderLabel: "BABA YAO SCHOOL BUS",
+    src: "/images/school-bus.jpg",
     excerpt: "School transport maintenance concludes as students prepare for county athletics championships and regional science symposiums.",
     content: [
       "The school's beloved bus, affectionately known as 'Baba Yao', has received routine comprehensive mechanical certification.",
@@ -338,6 +342,7 @@ export const newsArticles: NewsItem[] = [
     date: "Alumni Relations",
     readTime: "3 min read",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL DORMITORY",
+    src: "/images/school-dormitory.jpg",
     excerpt: "Old Boys of Kevote collaborate with school administration to provide career guidance, university orientation, and character talks.",
     content: [
       "St. Paul's Kevote Alumni representatives visited the campus to meet with candidate classes for a series of career talks.",
@@ -352,6 +357,7 @@ export const galleryList: GalleryItem[] = [
     title: "School Gate & Checkpoint",
     category: "FACILITIES",
     imagePlaceholderLabel: "MAIN SCHOOL GATE / ENTRANCE",
+    src: "/images/school-gate.jpg",
     caption: "The main gated entry into St. Paul's High School Kevote compound.",
     featured: true
   },
@@ -360,6 +366,7 @@ export const galleryList: GalleryItem[] = [
     title: "Central School Compound & Greenery",
     category: "CAMPUS",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL COMPOUND PHOTO",
+    src: "/images/school-compound.jpg",
     caption: "Scenic academic grounds nestled in the highland climate of Kevote.",
     featured: true
   },
@@ -368,6 +375,7 @@ export const galleryList: GalleryItem[] = [
     title: "'Baba Yao' School Bus",
     category: "TRANSPORT",
     imagePlaceholderLabel: "BABA YAO SCHOOL BUS",
+    src: "/images/school-bus.jpg",
     caption: "The iconic school bus facilitating student trips and athletic transport.",
     featured: true
   },
@@ -376,6 +384,7 @@ export const galleryList: GalleryItem[] = [
     title: "Student Dormitory Block",
     category: "BOARDING",
     imagePlaceholderLabel: "SCHOOL DORMITORY",
+    src: "/images/school-dormitory.jpg",
     caption: "Boarding houses providing a safe, brotherhood-oriented home.",
     featured: true
   },
@@ -384,6 +393,7 @@ export const galleryList: GalleryItem[] = [
     title: "School Bakery Facility",
     category: "FACILITIES",
     imagePlaceholderLabel: "SCHOOL BAKERY",
+    src: "/images/school-bakery.jpg",
     caption: "The on-site bakery preparing daily fresh bread for all boarding students.",
     featured: true
   },
@@ -392,13 +402,15 @@ export const galleryList: GalleryItem[] = [
     title: "School Leadership & Administration",
     category: "CAMPUS",
     imagePlaceholderLabel: "PRINCIPAL PHOTOGRAPH",
-    caption: "Office of the Chief Principal Mr. Peter Mwiti Kiugu."
+    src: "/images/principal.jpg",
+    caption: "Office of the Chief Principal Mr. Simon Njagi."
   },
   {
     id: "g-labs",
     title: "Science & Computer Laboratory Wing",
     category: "ACADEMICS",
     imagePlaceholderLabel: "AUTHENTIC SCIENCE & COMPUTER LABS",
+    src: "/images/school-laboratories.jpg",
     caption: "Practical inquiry facilities supporting Physics, Chemistry, Biology and ICT."
   },
   {
@@ -406,6 +418,7 @@ export const galleryList: GalleryItem[] = [
     title: "Sports Fields & Games Grounds",
     category: "SCHOOL LIFE",
     imagePlaceholderLabel: "AUTHENTIC SCHOOL SPORTS GROUNDS",
+    src: "/images/school-sports.jpg",
     caption: "Playing fields for rugby, football, handball, volleyball, and athletics."
   }
 ];

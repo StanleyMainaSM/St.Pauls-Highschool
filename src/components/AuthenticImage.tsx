@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Camera, Bus, Building2, Utensils, Award, School, Users, Shield, BookOpen, Layers } from 'lucide-react';
 
 interface AuthenticImageProps {
@@ -26,6 +26,11 @@ export const AuthenticImage: React.FC<AuthenticImageProps> = ({
 }) => {
   const [imageError, setImageError] = useState(false);
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setImageError(false);
+    setLoaded(false);
+  }, [src]);
 
   // Clean label to ensure bracket format if not already bracketed
   const formattedLabel = label.startsWith('[') && label.endsWith(']')
@@ -80,14 +85,15 @@ export const AuthenticImage: React.FC<AuthenticImageProps> = ({
           src={src}
           alt={alt}
           loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
           onError={() => setImageError(true)}
           onLoad={() => setLoaded(true)}
-          className={`w-full h-full object-cover ${objectPosition} transition-transform duration-700 ease-out group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover ${objectPosition} transition-all duration-500 ease-out group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-90'}`}
         />
         
-        {/* Subtle authentic verified badge */}
-        <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded text-[11px] font-medium text-sky-300 tracking-wide border border-sky-500/20">
-          Official St. Paul's Photo
+        {/* Subtle authentic photograph badge */}
+        <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded text-[11px] font-medium text-sky-300 tracking-wide border border-sky-500/20 pointer-events-none">
+          St. Paul's Photo
         </div>
       </div>
     );

@@ -33,7 +33,7 @@ export const PrincipalMessage: React.FC = () => {
               <div className="mt-4 text-center space-y-1">
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-sky-950/80 border border-sky-600/30 text-[11px] font-mono text-sky-300">
                   <Award className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Verified School Leadership</span>
+                  <span>Office of the Principal</span>
                 </div>
                 <h3 className="font-display font-bold text-xl sm:text-2xl text-white tracking-tight mt-1">
                   {principal.name}

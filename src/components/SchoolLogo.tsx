@@ -14,6 +14,7 @@ export const SchoolLogo: React.FC<SchoolLogoProps> = ({
   showText = false,
   lightVariant = false
 }) => {
+  const [logoError, setLogoError] = React.useState(false);
   const customLogoPath = schoolAssets.logo.path;
 
   const sizeMap = {
@@ -25,13 +26,14 @@ export const SchoolLogo: React.FC<SchoolLogoProps> = ({
 
   const dim = sizeMap[size];
 
-  // If a real authentic logo image file is provided, render the image
-  if (customLogoPath && customLogoPath.trim() !== '') {
+  // If a real authentic logo image file is provided and has not errored, render the image
+  if (customLogoPath && customLogoPath.trim() !== '' && !logoError) {
     return (
       <div className={`flex items-center gap-3 ${className}`}>
         <img
           src={customLogoPath}
           alt="St. Paul's High School – Kevote Official Logo"
+          onError={() => setLogoError(true)}
           className={`${dim.container} object-contain transition-transform hover:scale-105`}
         />
         {showText && (

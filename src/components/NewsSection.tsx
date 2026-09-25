@@ -58,6 +58,7 @@ export const NewsSection: React.FC = () => {
           <div className="lg:col-span-7 bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between group">
             <div className="relative">
               <AuthenticImage
+                src={featured.src}
                 alt={featured.title}
                 label={featured.imagePlaceholderLabel}
                 category={featured.category}

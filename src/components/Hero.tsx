@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowDown, GraduationCap, Users, ShieldCheck, ChevronRight } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
 import { SchoolLogo } from './SchoolLogo';
@@ -12,6 +12,8 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onExplore, onAdmissions, onContact }) => {
+  const [heroBgError, setHeroBgError] = useState(false);
+
   return (
     <section
       id="home"
@@ -19,10 +21,11 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onAdmissions, onContact }
     >
       {/* Background Graphic / Authentic Hero Photo Slot */}
       <div className="absolute inset-0 z-0">
-        {schoolAssets.compound.path ? (
+        {schoolAssets.compound.path && !heroBgError ? (
           <img
             src={schoolAssets.compound.path}
             alt="St. Paul's High School Kevote Compound"
+            onError={() => setHeroBgError(true)}
             className="w-full h-full object-cover object-center scale-105 animate-in fade-in duration-1000"
           />
         ) : (
@@ -120,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onAdmissions, onContact }
                 <span className="text-sm font-bold text-white block">
                   1,018+ Students
                 </span>
-                <span className="text-[11px] text-emerald-400">Verified Official</span>
+                <span className="text-[11px] text-emerald-400">Active Learners</span>
               </div>
 
               <div className="space-y-0.5">

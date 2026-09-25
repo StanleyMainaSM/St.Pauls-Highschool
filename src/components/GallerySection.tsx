@@ -100,7 +100,7 @@ export const GallerySection: React.FC = () => {
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filteredItems.map((item, index) => {
-            const path = getImagePath(item.id);
+            const path = item.src || getImagePath(item.id);
             return (
               <div
                 key={item.id}
@@ -188,7 +188,7 @@ export const GallerySection: React.FC = () => {
           >
             <div className="relative max-h-[65vh] overflow-hidden flex items-center justify-center bg-black">
               <AuthenticImage
-                src={getImagePath(filteredItems[lightboxIndex].id)}
+                src={filteredItems[lightboxIndex].src || getImagePath(filteredItems[lightboxIndex].id)}
                 alt={filteredItems[lightboxIndex].title}
                 label={filteredItems[lightboxIndex].imagePlaceholderLabel}
                 category={filteredItems[lightboxIndex].category}
