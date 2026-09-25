@@ -1,0 +1,6 @@
+{
+  "name": "St. Paul's High School – Kevote",
+  "description": "Official website of St. Paul's High School Kevote, a boys' boarding senior secondary school in Embu County, Kenya. Motto: Jishinde Ushinde.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
